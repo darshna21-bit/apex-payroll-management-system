@@ -17,6 +17,9 @@ router.route('/')
   .get(protect, getPayrolls)
   .post(protect, authorize('admin'), generatePayroll);
 
+// Route for explicit RPC-style generation path called by frontend Axios service
+router.post('/generate', protect, authorize('admin'), generatePayroll);
+
 // Individual payslip and payment processing routes
 router.route('/:id')
   .get(protect, getPayrollById);

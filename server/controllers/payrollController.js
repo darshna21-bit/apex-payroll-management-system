@@ -80,6 +80,15 @@ const generatePayroll = async (req, res) => {
       return res.status(404).json({ success: false, message: 'Employee not found' });
     }
 
+    // Prevent payroll generation for months prior to the employee's joining date
+    const joiningMonth = new Date(employee.joiningDate).toISOString().substring(0, 7);
+    if (month < joiningMonth) {
+      return res.status(400).json({ 
+        success: false, 
+        message: `Cannot generate payroll for a month before the employee's joining date (${joiningMonth})` 
+      });
+    }
+
     // Check if payroll already generated for this month
     const payrollExists = await Payroll.findOne({ employee: employeeId, month });
     if (payrollExists) {
