@@ -1,13 +1,13 @@
 const API_BASE_URL =
   import.meta.env.MODE === 'development'
     ? 'http://localhost:5000/api'
-    : 'https://apex-payroll-management-system.onrender.com/api';// Fallback for standard environments, else uses proxy
+    : 'https://apex-payroll-management-system.onrender.com/api';
 
 import axios from 'axios';
 
 // Initialize Axios instance
 const api = axios.create({
-  baseURL: API_BASE_URL, // Leverages Vite proxy in local dev, resolves relatively in deployment
+  baseURL: API_BASE_URL, 
   headers: {
     'Content-Type': 'application/json',
   },
