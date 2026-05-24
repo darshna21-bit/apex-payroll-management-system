@@ -15,8 +15,12 @@ app.use(cors({
     'http://localhost:3000',
     'https://apex-payroll-client.onrender.com'
   ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 }));
+
+app.options('*', cors());
 app.use(express.json());
 
 // API Health Check
