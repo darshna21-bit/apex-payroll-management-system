@@ -25,7 +25,7 @@ const getEmployees = async (req, res) => {
       query.status = status;
     }
 
-    const employees = await Employee.find(query).sort({ employeeId: 1 }).populate('user', 'email role');
+    const employees = await Employee.find(query).sort({ createdAt: -1 }).populate('user', 'email role');
     res.status(200).json({ success: true, count: employees.length, data: employees });
   } catch (error) {
     console.error('GetEmployees Error:', error);

@@ -21,7 +21,7 @@ const getAttendance = async (req, res) => {
     }
 
     const logs = await Attendance.find(query)
-      .sort({ date: -1 })
+      .sort({ date: -1, createdAt: -1 })
       .populate('employee', 'fullName employeeId department designation');
 
     res.status(200).json({ success: true, count: logs.length, data: logs });

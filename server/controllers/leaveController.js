@@ -16,7 +16,7 @@ const getLeaves = async (req, res) => {
     }
 
     const leaves = await Leave.find(query)
-      .sort({ createdAt: -1 })
+      .sort({ startDate: -1, createdAt: -1 })
       .populate('employee', 'fullName employeeId department designation')
       .populate('approvedBy', 'name');
 

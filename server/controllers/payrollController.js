@@ -203,7 +203,7 @@ const getDashboardStats = async (req, res) => {
 
       // Recent payroll activities (last 5 entries)
       const recentActivity = await Payroll.find()
-        .sort({ updatedAt: -1 })
+        .sort({ createdAt: -1 })
         .limit(5)
         .populate('employee', 'fullName department employeeId');
 
