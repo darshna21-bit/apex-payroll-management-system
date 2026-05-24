@@ -189,11 +189,6 @@ For a complete and rapid inspection of the system, use these pre-loaded accounts
 
 ---
 
-## Screenshots
-(Add screenshots of the application here)
-
----
-
 ## Deployment Readiness
 
 ApexPayroll is optimized for continuous delivery and can be quickly launched on cloud platforms:
